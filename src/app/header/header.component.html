@@ -1,0 +1,8 @@
+<header>
+    <div class="navbar">
+        <a *ngIf="(authService.isUserLoggedIn())" routerLink="/">Home</a>
+        <a *ngIf="(authService.isUserLoggedIn())" [routerLink]="['/todos']">Todos</a>
+        <a *ngIf="(!authService.isUserLoggedIn())" routerLink="/login">Login</a>
+        <a *ngIf="(authService.isUserLoggedIn())" routerLink="/logout">Logout</a>
+    </div>
+</header>

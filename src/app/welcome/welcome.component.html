@@ -1,0 +1,5 @@
+<h1>Welcome!</h1>
+<div class="container">
+    Welcome {{nameFromUrl}}. Manage your todos <a [routerLink]="['/todos',nameFromUrl]" [queryParams]="{id: userId}">here</a>
+     <!-- welcome {{nameFromUrl}}. Manage your todos <a [routerLink]="['/todo']" [queryParams]="{id: userId}">here</a> -->
+</div>

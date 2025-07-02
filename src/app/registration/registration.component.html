@@ -1,0 +1,69 @@
+<div class="container mt-4">
+    <div class="card shadow p-4" style="max-width: 600px; margin: auto;">
+    <h2 class="text-center mb-4">User Registration</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>First Name</label>
+            <input type="text" formControlName="firstName" class="form-control"/> 
+            <div *ngIf="registerForm.controls['firstName'].invalid && registerForm.controls['firstName'].touched">
+                <span *ngIf="registerForm.controls['firstName'].errors?.['required']" class="text-danger">First Name is a required field</span>
+                <span *ngIf="registerForm.controls['firstName'].errors?.['minlength']" class="text-danger">Minimum 6 characters are required</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Last Name</label>
+           <input type="text" formControlName="lastName" class="form-control"/> 
+            <div *ngIf="registerForm.controls['lastName'].invalid && registerForm.controls['lastName'].touched">
+                <span *ngIf="registerForm.controls['lastName'].errors?.['required']" class="text-danger">Last Name is a required field</span>
+                <span *ngIf="registerForm.controls['lastName'].errors?.['minlength']" class="text-danger">Minimum 6 characters are required</span>
+            </div>
+        </div>
+
+         <div class="form-group">
+            <label>Email</label>
+            <input type="email" formControlName="email" class="form-control"/> 
+            <div *ngIf="registerForm.controls['email'].invalid && registerForm.controls['email'].touched">
+                <span *ngIf="registerForm.controls['email'].errors?.['required']" class="text-danger">Email is a required field</span>
+                <span *ngIf="registerForm.controls['email'].errors?.['email']" class="text-danger">Wrong email format</span>
+            </div>
+        </div>
+
+        <!-- <div class="form-group">
+            <label>Hobbies</label> <br>
+            <button class="btn btn-success" type="button" (click)="addHobbies()">Add Hobbies</button>
+            <div formArrayName="hobbies">
+                <div *ngFor="let hobby of hobbies.controls; let i=index" class="input-group mb-2">
+                    <input type="text" class="form-control" [formControlName]="i"/>
+                </div>
+            </div>
+        </div>    -->
+
+         <div class="form-group">
+            <label>Password</label>
+            <input type="password" formControlName="password" class="form-control"/>
+            <div *ngIf="registerForm.controls['password'].invalid && registerForm.controls['password'].touched">
+                <span *ngIf="registerForm.controls['password'].errors?.['required']" class="text-danger">Password is a required field</span>
+                <span *ngIf="registerForm.controls['password'].errors?.['minlength']" class="text-danger">Minimum 8 characters are required</span>
+                <span *ngIf="registerForm.controls['password'].errors?.['maxlength']" class="text-danger">Maximun 16 characters are required</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Confirm Password</label>
+            <input type="password" formControlName="confirmPassword" class="form-control"
+                (copy)="disableCopy($event)"
+                (paste)="disableCopy($event)"
+                (cut)="disableCopy($event)"/>
+            <div *ngIf="registerForm.hasError('passwordMismatch') && registerForm.get('confirmPassword')?.touched" class="text-danger">
+                Password do not match
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-center mt-3">
+        <button type="submit" class="btn btn-success" id="button">Register</button>
+        </div>
+    </form>
+</div>
+</div>
+        <!-- <button type="submit" class="btn btn-success" id="button" [disabled]="registerForm.invalid">Register</button> -->

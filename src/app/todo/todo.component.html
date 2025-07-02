@@ -1,0 +1,46 @@
+<br><br><div class="container mt-4">
+<div class="card shadow p-4" style="max-width: 600px; margin: auto;">
+    <h2>Todo</h2>
+    <div class="alert alert-success" *ngIf="updateMessage.length>0">{{updateMessage}}</div>
+    <div class="alert alert-success" *ngIf="addMessage.length>0">{{addMessage}}</div>
+    <form #todoForm="ngForm" (ngSubmit)="saveTodo(todoForm)">
+        <fieldset class="form-group">
+            <label>Name</label>
+            <input 
+                type="text"
+                class="form-control"
+                #name="ngModel"
+                name="name"
+                [(ngModel)]="todoObject.name"
+                required="required">
+                <span *ngIf="todoForm.touched && todoForm.invalid" class="text-danger">Name is required</span>
+        </fieldset>
+
+         <fieldset class="form-group">
+            <label>Description</label>
+            <input 
+                type="text"
+                class="form-control"
+                #name="ngModel"
+                name="description"
+                [(ngModel)]="todoObject.description"
+                required="required">
+                <span *ngIf="todoForm.touched && todoForm.invalid" class="text-danger">Description is required</span>
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label>End Date</label>
+            <input 
+                type="date"
+                class="form-control"
+                name="endDate"
+                [ngModel]="todoObject.endDate | date: 'yyyy-mm-dd'"
+                (ngModelChange)="todoObject.endDate = $event"
+                required="required">
+        </fieldset>
+        <div class="d-flex justify-content-center mt-3">
+            <button type="submit" [disabled]="todoForm.invalid" class="btn btn-success">{{buttonName}}</button>
+        </div>
+    </form>
+</div>
+</div>

@@ -1,0 +1,25 @@
+header {
+  background-color: #41787a; 
+  border-top: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+header .navbar {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  font-family: Arial, sans-serif;
+}
+
+header .navbar a {
+  text-decoration: none;
+  color: #fff9f9;
+  font-size: 14px;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+header .navbar a:hover {
+  color: #0e0101;
+  
+}

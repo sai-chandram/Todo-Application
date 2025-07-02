@@ -1,0 +1,18 @@
+.not-found-container {
+  max-width: 600px;
+  margin: 120px auto;
+  text-align: center;
+  padding: 40px;
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.not-found-container h2 {
+  color: #d9534f;
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+

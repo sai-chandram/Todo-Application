@@ -1,0 +1,17 @@
+<div *ngIf="!isLoginSuccess" class="alert alert-warning">Username and Password is not correct..!</div>
+<div class="container">
+    <h1>Login!</h1><br>
+    <div>
+        Email : <input type="email" [(ngModel)]="email" name="email" autocomplete="on">
+        <br>
+        <br>
+        Password : <input type="password" [(ngModel)]="password" name="password" autocomplete="on">
+        <br>
+        <br>
+        <button (click)="handleLogin()" class="btn btn-info" [disabled]="!email || !password">Login</button>
+    </div>
+    <p class="text-center mt-3">
+              Not a current user? 
+        <a [routerLink]="['/register']" class="text-primary text-decoration-underline">Register</a>
+    </p>
+</div>
